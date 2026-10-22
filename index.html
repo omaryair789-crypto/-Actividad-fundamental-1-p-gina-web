@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Planeta Tierra como Ecosistema - Ecología y Sustentabilidad</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN for visual data -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ecoGreen: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        ecoOcean: {
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        ecoEarth: {
+                            100: '#fef3c7',
+                            600: '#d97706',
+                            800: '#92400e',
+                            900: '#78350f',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-light {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, rgba(15, 23, 42, 0.95) 100%);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #166534;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans custom-scrollbar antialiased selection:bg-ecoGreen-500 selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-card border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-emerald-500 to-cyan-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-500/20">
+                        <i class="fa-solid font-bold fa-globe"></i>
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-200 to-cyan-400">Gaia Ecosistema</span>
+                        <span class="block text-[10px] text-slate-400 -mt-1 font-medium">Ambiente y Sustentabilidad</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex space-x-6 text-sm font-medium">
+                    <a href="#inicio" class="hover:text-emerald-400 transition-colors">Inicio</a>
+                    <a href="#introduccion" class="hover:text-emerald-400 transition-colors">Tierra & Gaia</a>
+                    <a href="#finita" class="hover:text-emerald-400 transition-colors">Recursos Finitos</a>
+                    <a href="#homeostasis" class="hover:text-emerald-400 transition-colors">Homeostasis</a>
+                    <a href="#estructura" class="hover:text-emerald-400 transition-colors">Subsistemas</a>
+                    <a href="#flujos" class="hover:text-emerald-400 transition-colors">Energía y Materia</a>
+                    <a href="#ciclos" class="hover:text-emerald-400 transition-colors">Ciclos</a>
+                    <a href="#sustentabilidad" class="hover:text-emerald-400 transition-colors px-3 py-1 rounded-full bg-emerald-600/30 text-emerald-300 border border-emerald-500/30">Regla de Sustentabilidad</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-white p-2 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="mobile-link block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Inicio</a>
+            <a href="#introduccion" class="mobile-link block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Tierra como Ecosistema</a>
+            <a href="#finita" class="mobile-link block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Planeta Finito</a>
+            <a href="#homeostasis" class="mobile-link block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Homeostasis y Equilibrio</a>
+            <a href="#estructura" class="mobile-link block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Subsistemas Físico y Biológico</a>
+            <a href="#flujos" class="mobile-link block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Flujo de Energía</a>
+            <a href="#ciclos" class="mobile-link block px-3 py-2 rounded-md hover:bg-slate-800 text-slate-200">Ciclos Biogeoquímicos</a>
+            <a href="#sustentabilidad" class="mobile-link block px-3 py-2 rounded-md bg-emerald-600/30 text-emerald-300 font-semibold">Regla de Sustentabilidad</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=1920&auto=format&fit=crop" 
+                 alt="Planeta Tierra desde el espacio" 
+                 class="w-full h-full object-cover object-center scale-105 animate-pulse" style="animation-duration: 12s;"
+                 onerror="this.src='https://placehold.co/1920x1080/0f172a/ffffff?text=Planeta+Tierra+desde+el+Espacio'">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-12">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-semibold uppercase tracking-wider mb-6 backdrop-blur-md">
+                <i class="fa-solid fa-leaf text-emerald-400"></i>
+                <span>Ambiente y Sustentabilidad • Capítulo 1 & 2</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                El Planeta Tierra <br class="hidden sm:inline"/>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">
+                    como Ecosistema
+                </span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed mb-8">
+                Un análisis holístico e interdisciplinario sobre los principios básicos de la naturaleza, la homeostasis, el flujo de energía y el ciclado de materia en la Ecosfera.
+            </p>
+
+            <!-- Quote Box (Victor Hugo) -->
+            <div class="glass-card max-w-2xl mx-auto p-6 rounded-2xl border-l-4 border-l-emerald-500 text-left mb-10 shadow-2xl">
+                <i class="fa-solid fa-quote-left text-2xl text-emerald-400 opacity-60 mb-2"></i>
+                <blockquote class="font-serif italic text-slate-200 text-base sm:text-lg leading-relaxed">
+                    "Primero, fue necesario civilizar al hombre en su relación con el hombre. Ahora, es necesario civilizar al hombre en su relación con la naturaleza y los animales."
+                </blockquote>
+                <p class="text-right text-xs uppercase tracking-widest font-semibold text-emerald-400 mt-3">— Victor Hugo</p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#introduccion" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold hover:from-emerald-500 hover:to-teal-500 shadow-lg shadow-emerald-900/40 transition-all flex items-center justify-center space-x-2">
+                    <span>Explorar Principios Ecológicos</span>
+                    <i class="fa-solid fa-arrow-down text-sm"></i>
+                </a>
+                <a href="#sustentabilidad" class="w-full sm:w-auto px-8 py-3.5 rounded-xl glass-card text-slate-200 font-semibold hover:bg-slate-800/80 transition-all flex items-center justify-center space-x-2 border border-slate-700">
+                    <i class="fa-solid fa-scale-balanced text-emerald-400"></i>
+                    <span>Regla de Sustentabilidad</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: QUE ES EL PLANETA TIERRA Y PRIMEROS PRINCIPIOS -->
+    <section id="introduccion" class="py-20 relative bg-slate-900/60 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs uppercase font-bold text-emerald-400 tracking-widest mb-2">Principio 1 de la Naturaleza</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">¿Qué es el Planeta Tierra?</h3>
+                <div class="w-20 h-1 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-400 mt-4 leading-relaxed">
+                    La Tierra es un sistema viviente caracterizado por ser finito, en homeostasis y sustentable. En 1972, la tripulación del Apolo 17 fotografió por primera vez a nuestro planeta desde el espacio ("La Canica Azul").
+                </p>
+            </div>
+
+            <!-- Grid Key Earth Traits -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="glass-card p-6 rounded-2xl hover:border-emerald-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Origen Solar</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Formada hace approx. <span class="text-emerald-300 font-semibold">4,550 millones de años</span> a partir de la nebulosa protosolar, junto con el Sol y demás planetas.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl hover:border-emerald-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Posición Orbital</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Ocupa el <span class="text-cyan-300 font-semibold">3er lugar en distancia</span> respecto al Sol y es el <span class="text-cyan-300 font-semibold">4to planeta en tamaño</span> del Sistema Solar.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl hover:border-emerald-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-dna"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Unico con Vida</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Es el único lugar confirmado en el universo donde existe la vida, habiendo evolucionado mediante procesos geológicos y biológicos.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl hover:border-emerald-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-magnet"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Núcleo y Campo</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Su interior permanece activo con materiales fundidos y un núcleo rico en hierro que genera un escudo magnetosférico.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Gaia Interactive Banner -->
+            <div class="relative rounded-3xl overflow-hidden glass-card p-8 lg:p-12 border border-slate-800">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="inline-block px-3 py-1 rounded-full bg-emerald-900/50 text-emerald-300 text-xs font-semibold mb-3">
+                            Hipótesis de Gaia (Margulis, 1998)
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">La Tierra como Sistema Viviente (Gaia)</h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+                            Esta característica está definida por la interacción constante entre los diversos ecosistemas acuáticos y terrestres que la integran.
+                        </p>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            A través de procesos geoquímicos (abióticos) y biológicos (bióticos), la Tierra determinó las condiciones iniciales apropiadas para el inicio de la vida y la posterior consolidación de la biosfera.
+                        </p>
+                        <div class="flex items-center space-x-4 border-t border-slate-800 pt-4">
+                            <div class="text-center">
+                                <span class="block text-2xl font-bold text-emerald-400">12,756.3 km</span>
+                                <span class="text-xs text-slate-400">Diámetro Terrestre</span>
+                            </div>
+                            <div class="h-8 w-px bg-slate-800"></div>
+                            <div class="text-center">
+                                <span class="block text-2xl font-bold text-cyan-400">70%</span>
+                                <span class="text-xs text-slate-400">Cubierta de Agua</span>
+                            </div>
+                            <div class="h-8 w-px bg-slate-800"></div>
+                            <div class="text-center">
+                                <span class="block text-2xl font-bold text-amber-400">15 °C</span>
+                                <span class="text-xs text-slate-400">Temp. Promedio</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Biosfera y Atmosfera Terrestre" 
+                             class="w-full h-full object-cover"
+                             onerror="this.src='https://placehold.co/800x600/0c4a6e/ffffff?text=Ecosistema+Gaia'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
+                            <span class="text-xs text-slate-300 font-medium">Interacción de Litósfera, Hidrósfera, Atmósfera y Biosfera</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: LA TIERRA ES FINITA -->
+    <section id="finita" class="py-20 bg-slate-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs uppercase font-bold text-emerald-400 tracking-widest mb-2">Sección 1.1.2</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">La Tierra es Finita en Espacio, Recursos y Sustentabilidad</h3>
+                <div class="w-20 h-1 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-400 mt-4 leading-relaxed">
+                    A pesar de su inmensidad, la Tierra es finita no solo en su dimensión física sino también en sus recursos disponibles para el consumo humano.
+                </p>
+            </div>
+
+            <!-- Water & Land Distribution Interactive Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                
+                <!-- Hydrosphere breakdown -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-water"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-white">Hidrósfera (70% de la Tierra)</h4>
+                            <p class="text-xs text-slate-400">1,300 millones de km³ de agua en total</p>
+                        </div>
+                    </div>
+
+                    <div class="relative h-64 mb-6">
+                        <canvas id="waterChart"></canvas>
+                    </div>
+
+                    <div class="space-y-3 text-sm">
+                        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex justify-between items-center">
+                            <span class="text-slate-300"><i class="fa-solid fa-circle text-sky-500 text-xs mr-2"></i>Océanos (Agua salada)</span>
+                            <span class="font-bold text-white">97%</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex justify-between items-center">
+                            <span class="text-slate-300"><i class="fa-solid fa-circle text-cyan-300 text-xs mr-2"></i>Hielo glaciar (Zonas polares)</span>
+                            <span class="font-bold text-white">2% <span class="text-xs font-normal text-slate-400">(28.3 mill. km³)</span></span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/40 flex justify-between items-center">
+                            <div>
+                                <span class="text-emerald-300 font-medium"><i class="fa-solid fa-circle text-emerald-400 text-xs mr-2"></i>Agua dulce accesible</span>
+                                <p class="text-[11px] text-slate-400 ml-5">La población consume el 54% de este 1%</p>
+                            </div>
+                            <span class="font-bold text-emerald-400 text-base">¡Solo 1%! <span class="text-xs font-normal text-slate-400">(8.1 mill. km³)</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lithosphere breakdown -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-mountain-sun"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-white">Litósfera (30% de la Tierra)</h4>
+                            <p class="text-xs text-slate-400">Distribución de la superficie continental</p>
+                        </div>
+                    </div>
+
+                    <div class="relative h-64 mb-6">
+                        <canvas id="landChart"></canvas>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
+                            <span class="text-slate-400 block">Bosques</span>
+                            <span class="text-lg font-bold text-emerald-400">32%</span>
+                        </div>
+                        <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
+                            <span class="text-slate-400 block">Montañas, Polos, Desiertos</span>
+                            <span class="text-lg font-bold text-slate-300">30%</span>
+                        </div>
+                        <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
+                            <span class="text-slate-400 block">Pastizales</span>
+                            <span class="text-lg font-bold text-amber-400">25%</span>
+                        </div>
+                        <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
+                            <span class="text-slate-400 block">Áreas Agropecuarias</span>
+                            <span class="text-lg font-bold text-yellow-500">11%</span>
+                        </div>
+                    </div>
+                    <div class="mt-3 p-3 rounded-xl bg-purple-950/30 border border-purple-500/30 flex items-center justify-between">
+                        <span class="text-xs text-purple-200"><i class="fa-solid fa-city mr-2 text-purple-400"></i>Asentamientos Humanos (Ciudades)</span>
+                        <span class="text-sm font-bold text-purple-300">Solo 2%</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Resource Classification Cards -->
+            <div class="mb-16">
+                <h4 class="text-2xl font-bold text-white text-center mb-8">Clasificación de los Recursos de la Tierra</h4>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Inagotables -->
+                    <div class="glass-card p-6 rounded-2xl border-t-4 border-t-amber-400 relative overflow-hidden group">
+                        <div class="w-12 h-12 rounded-xl bg-amber-400/20 text-amber-300 flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+                        <h5 class="text-xl font-bold text-white mb-2">Recursos Inagotables</h5>
+                        <p class="text-xs text-amber-300 font-semibold mb-3">Permanentes en escala de tiempo humana</p>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Son inagotables, aunque presentan variaciones en su distribución espacial y temporal.
+                        </p>
+                        <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-3">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i>Energía Solar</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i>Vientos (Eólica)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i>Mareas (Mareomotriz)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Agotables / No renovables -->
+                    <div class="glass-card p-6 rounded-2xl border-t-4 border-t-red-500 relative overflow-hidden group">
+                        <div class="w-12 h-12 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-gas-pump"></i>
+                        </div>
+                        <h5 class="text-xl font-bold text-white mb-2">Recursos Agotables</h5>
+                        <p class="text-xs text-red-400 font-semibold mb-3">No renovables (Cantidad finita)</p>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Existen en cantidades determinadas. Si no se usan de manera racional, se agotarán pues no se regeneran a tiempo humano.
+                        </p>
+                        <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-3">
+                            <li class="flex items-center"><i class="fa-solid fa-xmark text-red-400 mr-2"></i>Combustibles fósiles (Petróleo, Carbón)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-xmark text-red-400 mr-2"></i>Minerales inorgánicos</li>
+                            <li class="flex items-center"><i class="fa-solid fa-triangle-exclamation text-amber-400 mr-2"></i>El suelo (Formación hiperlenta)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Renovables -->
+                    <div class="glass-card p-6 rounded-2xl border-t-4 border-t-emerald-500 relative overflow-hidden group">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </div>
+                        <h5 class="text-xl font-bold text-white mb-2">Recursos Renovables</h5>
+                        <p class="text-xs text-emerald-400 font-semibold mb-3">Conservados vía ciclos bioquímicos</p>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Se regeneran continuamente. Sin embargo, se pueden agotar si el consumo/contaminación supera su velocidad de ciclado.
+                        </p>
+                        <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-3">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i>Oxígeno, Agua, Carbono, Nitrógeno</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-emerald-400 mr-2"></i>Flora y Fauna (Reproducción)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Atmosphere Finite Layer Info Box -->
+            <div class="glass-card p-8 rounded-3xl border border-slate-800 bg-gradient-to-r from-slate-900 via-slate-900 to-sky-950/40">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                    <div class="lg:col-span-2">
+                        <span class="text-xs font-bold uppercase text-sky-400 tracking-wider">Espesor Finito de la Atmósfera</span>
+                        <h4 class="text-2xl font-bold text-white mt-1 mb-4">Una Fina Capa Protectora de 90 a 100 km</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Sin la atmósfera, la temperatura terrestre alcanzaría más de <span class="text-red-400 font-semibold">75 °C</span> durante el día y descendería a menos de <span class="text-cyan-300 font-semibold">-130 °C</span> en la noche.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                            <div class="p-4 rounded-2xl bg-slate-950/60 border border-slate-800">
+                                <span class="text-xs text-emerald-400 font-bold block">Estrato de Ozono (O₃)</span>
+                                <span class="text-lg font-extrabold text-white">25 - 45 km</span>
+                                <p class="text-xs text-slate-400 mt-1">Ocupa el 0.00006% de los gases. Filtra radiación UV letal para la biosfera.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-slate-950/60 border border-slate-800">
+                                <span class="text-xs text-cyan-400 font-bold block">Troposfera (Oxígeno Vivo)</span>
+                                <span class="text-lg font-extrabold text-white">Primeros 10 km</span>
+                                <p class="text-xs text-slate-400 mt-1">Concentra el 95% del oxígeno indispensable para la respiración aeróbica.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col space-y-3">
+                        <div class="p-4 rounded-2xl bg-sky-950/30 border border-sky-500/20 text-center">
+                            <i class="fa-solid fa-layer-group text-3xl text-sky-400 mb-2"></i>
+                            <h5 class="text-sm font-bold text-white">Ionósfera / Auroras</h5>
+                            <span class="text-xs text-slate-400">&gt; 80 - 100 km</span>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-indigo-950/30 border border-indigo-500/20 text-center">
+                            <h5 class="text-sm font-bold text-white">Mesósfera</h5>
+                            <span class="text-xs text-slate-400">50 - 80 km</span>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-emerald-950/30 border border-emerald-500/20 text-center">
+                            <h5 class="text-sm font-bold text-white">Estratósfera (Capa de Ozono)</h5>
+                            <span class="text-xs text-slate-400">14 - 50 km</span>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-teal-950/40 border border-teal-500/30 text-center">
+                            <h5 class="text-sm font-bold text-white">Troposfera</h5>
+                            <span class="text-xs text-slate-400">0 - 14 km (Vida & Clima)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: EQUILIBRIO U HOMEOSTASIS -->
+    <section id="homeostasis" class="py-20 bg-slate-900/60 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs uppercase font-bold text-emerald-400 tracking-widest mb-2">Sección 1.1.3</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">La Tierra está en Equilibrio u Homeostasis</h3>
+                <div class="w-20 h-1 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-400 mt-4 leading-relaxed">
+                    La biosfera autorregula las condiciones del planeta para mantener estables factores críticos como la temperatura global, la composición atmosférica y la salinidad oceánica.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-temperature-half"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Temperatura Global</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Mantenida en un promedio global cercano a los <span class="text-emerald-400 font-semibold">15 °C</span> gracias a los gases de efecto invernadero y la circulación oceánica.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-wind"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Composición Atmosférica</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Control de la proporción de oxígeno (21%), nitrógeno (78%) y CO₂ para sostener el metabolismo biológico aeróbico.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-bottle-water"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Salinidad del Océano</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Autorregulación de concentraciones de sales en la hidrósfera mediante precipitación, escurrimiento y evaporación.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Homeostasis Mechanisms Banner -->
+            <div class="glass-card p-8 rounded-3xl border border-slate-800">
+                <h4 class="text-xl font-bold text-white mb-6 text-center">Mecanismos de Restablecimiento del Equilibrio Dinámico</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <i class="fa-solid fa-shield-halved text-emerald-400 text-lg"></i>
+                            <h5 class="text-base font-bold text-white">Inercia o Resiliencia</h5>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Capacidad de un sistema ecológico para recuperar su estado de equilibrio tras sufrir un disturbio ambiental severo.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <i class="fa-solid fa-chart-line text-cyan-400 text-lg"></i>
+                            <h5 class="text-base font-bold text-white">Tolerancia</h5>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Rango de condiciones ambientales (temperatura, pH, luz) dentro del cual los organismos pueden sobrevivir y funcionar.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <i class="fa-solid fa-tree text-amber-400 text-lg"></i>
+                            <h5 class="text-base font-bold text-white">Biodiversidad</h5>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            La riqueza de especies es el motor principal que mantiene la estabilidad general e incrementa la resiliencia del paisaje.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: ESTRUCTURA Y FUNCIONAMIENTO DE LA TIERRA -->
+    <section id="estructura" class="py-20 bg-slate-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs uppercase font-bold text-emerald-400 tracking-widest mb-2">Capítulo 1.2 • Segundo Principio</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">Estructura y Funcionamiento de la Tierra</h3>
+                <div class="w-20 h-1 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-400 mt-4 leading-relaxed">
+                    La Tierra está constituida por dos grandes subsistemas interconectados: el Subsistema Físico (Ecosfera) y el Subsistema Biológico (Biosfera).
+                </p>
+            </div>
+
+            <!-- Two Subsystems Split -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                
+                <!-- Physical Subsystem -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800 border-t-4 border-t-cyan-500">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-white">1. Subsistema Físico (Ecosfera)</h4>
+                            <p class="text-xs text-cyan-300">Componentes Abióticos & Medio Físico</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Atmósfera -->
+                        <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+                            <h5 class="text-base font-bold text-white mb-2 flex items-center justify-between">
+                                <span><i class="fa-solid fa-cloud text-sky-400 mr-2"></i>Atmósfera (Aire)</span>
+                                <span class="text-xs bg-sky-500/20 text-sky-300 px-2.5 py-0.5 rounded-full">Capa gaseosa</span>
+                            </h5>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Composición: <strong class="text-white">78% Nitrógeno (N₂)</strong>, <strong class="text-white">21% Oxígeno (O₂)</strong>, <strong class="text-white">0.033% CO₂</strong>, además de vapor de agua y gases raros. Absorbe calor radiado manteniendo la cubierta térmica.
+                            </p>
+                        </div>
+
+                        <!-- Hidrósfera -->
+                        <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+                            <h5 class="text-base font-bold text-white mb-2 flex items-center justify-between">
+                                <span><i class="fa-solid fa-droplet text-blue-400 mr-2"></i>Hidrósfera (Agua)</span>
+                                <span class="text-xs bg-blue-500/20 text-blue-300 px-2.5 py-0.5 rounded-full">Termorregulador</span>
+                            </h5>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Disolvente universal. Sus corrientes oceánicas redistribuyen la energía calorífica desde el ecuador hacia los polos, evitando climas extremosos en el planeta.
+                            </p>
+                        </div>
+
+                        <!-- Litósfera & Soil Profile -->
+                        <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+                            <h5 class="text-base font-bold text-white mb-2 flex items-center justify-between">
+                                <span><i class="fa-solid fa-layer-group text-amber-500 mr-2"></i>Litósfera (Perfil del Suelo)</span>
+                                <span class="text-xs bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-full">Suelo</span>
+                            </h5>
+                            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                                Sustrato formado por arena, limo, arcilla, aire, agua y materia orgánica. Filtra agua, almacena calor e intercambia gases.
+                            </p>
+                            
+                            <!-- Soil Horizons Interactive Graphic -->
+                            <div class="grid grid-cols-5 gap-1 text-center font-mono text-[10px]">
+                                <div class="p-2 rounded bg-amber-900/40 border border-amber-800/60 text-amber-200">
+                                    <strong>Horiz. A</strong><br/>Materia Org.
+                                </div>
+                                <div class="p-2 rounded bg-amber-800/40 border border-amber-700/60 text-amber-300">
+                                    <strong>Horiz. E</strong><br/>Lixiviación
+                                </div>
+                                <div class="p-2 rounded bg-amber-700/40 border border-amber-600/60 text-amber-400">
+                                    <strong>Horiz. B</strong><br/>Acumulación
+                                </div>
+                                <div class="p-2 rounded bg-stone-800/80 border border-stone-700 text-stone-300">
+                                    <strong>Horiz. C</strong><br/>Mat. Parental
+                                </div>
+                                <div class="p-2 rounded bg-stone-900 border border-stone-800 text-stone-400">
+                                    <strong>Horiz. D</strong><br/>Roca Madre
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Biological Subsystem -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800 border-t-4 border-t-emerald-500">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-white">2. Subsistema Biológico</h4>
+                            <p class="text-xs text-emerald-300">Organismos Bióticos & Cadenas Tróficas</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Productores -->
+                        <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-start space-x-3">
+                            <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 mt-1">
+                                <i class="fa-solid fa-seedling text-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-base font-bold text-white">Productores Primarios (Autótrofos)</h5>
+                                <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                                    Plantas verdes, algas y fitoplancton. Capturan la energía solar mediante la fotosíntesis para sintetizar biomasa y compuestos orgánicos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Consumidores -->
+                        <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-start space-x-3">
+                            <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-400 mt-1">
+                                <i class="fa-solid fa-paw text-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-base font-bold text-white">Consumidores (Heterótrofos)</h5>
+                                <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                                    <strong class="text-amber-300">Primarios:</strong> Herbívoros (ej. zooplancton, roedores).<br/>
+                                    <strong class="text-amber-300">Secundarios/Terciarios:</strong> Carnívoros y omnívoros.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Desintegradores -->
+                        <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-start space-x-3">
+                            <div class="p-2.5 rounded-xl bg-purple-500/10 text-purple-400 mt-1">
+                                <i class="fa-solid fa-bugs text-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-base font-bold text-white">Descomponedores / Desintegradores</h5>
+                                <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                                    Bacterias y hongos. Descomponen la materia orgánica muerta en nutrientes inorgánicos simples, cerrando el ciclo biogeoquímico.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Image -->
+                        <div class="relative h-36 rounded-2xl overflow-hidden mt-4">
+                            <img src="https://images.unsplash.com/photo-1511497584788-876761c119ee?q=80&w=800&auto=format&fit=crop" 
+                                 alt="Bosque y Biodiversidad" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/800x300/14532d/ffffff?text=Subsistema+Biológico'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end p-4">
+                                <span class="text-xs text-emerald-300 font-semibold">La Biosfera nace de la interacción abiótica-biótica</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: FLUJO DE ENERGIA Y CICLOS BIOGEOQUIMICOS -->
+    <section id="flujos" class="py-20 bg-slate-900/60 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs uppercase font-bold text-emerald-400 tracking-widest mb-2">Capítulo 2 • Tercer Principio</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">Flujo de Energía (Sistema Abierto)</h3>
+                <div class="w-20 h-1 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-400 mt-4 leading-relaxed">
+                    La Tierra funciona como un sistema abierto con respecto a la energía solar. La radiación solar es la única fuente primaria de energía del planeta (Primera Ley de la Termodinámica).
+                </p>
+            </div>
+
+            <!-- Solar Energy Destination Breakdown Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 text-center">
+                    <span class="text-3xl font-extrabold text-amber-400 block mb-1">34%</span>
+                    <span class="text-xs text-slate-300 font-semibold block mb-2">Reflejado Inmediatamente</span>
+                    <p class="text-[11px] text-slate-400">Por nubes, polvo atmosférico y la superficie terrestre (Albedo).</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 text-center">
+                    <span class="text-3xl font-extrabold text-orange-400 block mb-1">42%</span>
+                    <span class="text-xs text-slate-300 font-semibold block mb-2">Calentamiento Térmico</span>
+                    <p class="text-[11px] text-slate-400">Calienta la atmósfera y la superficie continental del planeta.</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 text-center">
+                    <span class="text-3xl font-extrabold text-sky-400 block mb-1">22%</span>
+                    <span class="text-xs text-slate-300 font-semibold block mb-2">Ciclo del Agua</span>
+                    <p class="text-[11px] text-slate-400">Evapora el agua y la circula a través de toda la ecosfera.</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 text-center">
+                    <span class="text-3xl font-extrabold text-teal-400 block mb-1">1%</span>
+                    <span class="text-xs text-slate-300 font-semibold block mb-2">Generación de Vientos</span>
+                    <p class="text-[11px] text-slate-400">Produce las corrientes de aire y eólicas a nivel global.</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 text-center bg-emerald-950/30 border-emerald-500/40">
+                    <span class="text-3xl font-extrabold text-emerald-400 block mb-1">1%</span>
+                    <span class="text-xs text-emerald-300 font-bold block mb-2">Fotosíntesis</span>
+                    <p class="text-[11px] text-slate-300">Capturado por plantas para generar energía química de biomasa.</p>
+                </div>
+            </div>
+
+            <!-- Trophic Pyramid & Thermodynamic Law -->
+            <div class="glass-card p-8 rounded-3xl border border-slate-800 mb-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Segunda Ley de la Termodinámica</span>
+                        <h4 class="text-2xl font-bold text-white mt-1 mb-4">Pirámides Ecológicas y Disipación de Calor</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            En cada nivel trófico, se disipa energía en forma de calor no utilizable. Solo se transfiere entre el <strong class="text-emerald-400">2% y el 30%</strong> de energía al siguiente nivel.
+                        </p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                            Distribución de la biomasa total en la Tierra:
+                        </p>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-emerald-300 font-semibold">Vegetación</span>
+                                    <span class="text-white font-bold">85%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="bg-emerald-500 h-full rounded-full" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-amber-300 font-semibold">Fauna (Animales)</span>
+                                    <span class="text-white font-bold">10%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="bg-amber-500 h-full rounded-full" style="width: 10%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-cyan-300 font-semibold">Biomasa Humana</span>
+                                    <span class="text-white font-bold">5%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="bg-cyan-400 h-full rounded-full" style="width: 5%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Trophic Pyramid -->
+                    <div class="space-y-2 text-center text-xs font-bold">
+                        <div class="p-3 bg-red-950/60 border border-red-500/40 rounded-xl text-red-200 max-w-xs mx-auto">
+                            Consumidores Terciarios (10 unidades)
+                        </div>
+                        <div class="p-3.5 bg-amber-950/60 border border-amber-500/40 rounded-xl text-amber-200 max-w-md mx-auto">
+                            Consumidores Secundarios (100 unidades)
+                        </div>
+                        <div class="p-4 bg-teal-950/60 border border-teal-500/40 rounded-xl text-teal-200 max-w-lg mx-auto">
+                            Consumidores Primarios / Zooplancton (1,000 unidades)
+                        </div>
+                        <div class="p-5 bg-emerald-900/60 border border-emerald-500/60 rounded-xl text-emerald-100 w-full shadow-lg">
+                            Productores Primarios / Fitoplancton (10,000 unidades)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: CICLOS BIOGEOQUIMICOS (SISTEMA CERRADO) -->
+            <div id="ciclos" class="pt-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-xs uppercase font-bold text-emerald-400 tracking-widest mb-2">Cuarto Principio • Flujo de Materia</h2>
+                    <h3 class="text-3xl font-bold text-white">Ciclos Biogeoquímicos (Sistema Cerrado)</h3>
+                    <p class="text-slate-400 text-sm mt-3">
+                        El 95% de la biosfera está formada por 6 macronutrientes esenciales: <strong class="text-emerald-300">C, H, N, O, P, S</strong>.
+                    </p>
+                </div>
+
+                <!-- Interactive Tabs for Cycles -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-800">
+                    <div class="flex flex-wrap gap-2 justify-center border-b border-slate-800 pb-6 mb-6" id="cycle-tabs">
+                        <button onclick="switchTab('oxigeno')" id="tab-oxigeno" class="cycle-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-600 text-white transition-all">
+                            <i class="fa-solid fa-wind mr-1.5"></i>Oxígeno (O₂)
+                        </button>
+                        <button onclick="switchTab('carbono')" id="tab-carbono" class="cycle-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                            <i class="fa-solid fa-molecule mr-1.5"></i>Carbono (C)
+                        </button>
+                        <button onclick="switchTab('nitrogeno')" id="tab-nitrogeno" class="cycle-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                            <i class="fa-solid fa-bolt mr-1.5"></i>Nitrógeno (N₂)
+                        </button>
+                        <button onclick="switchTab('fosforo')" id="tab-fosforo" class="cycle-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                            <i class="fa-solid fa-gem mr-1.5"></i>Fósforo (P)
+                        </button>
+                        <button onclick="switchTab('azufre')" id="tab-azufre" class="cycle-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                            <i class="fa-solid fa-volcano mr-1.5"></i>Azufre (S)
+                        </button>
+                        <button onclick="switchTab('agua')" id="tab-agua" class="cycle-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+                            <i class="fa-solid fa-droplet mr-1.5"></i>Hidrológico (Agua)
+                        </button>
+                    </div>
+
+                    <!-- Tab Contents -->
+                    <div id="tab-content" class="min-h-[220px]">
+                        <!-- Dynamic Content Inject -->
+                    </div>
+                </div>
+
+                <!-- Water Renewal Rates Table (Tabla 2.1 PDF) -->
+                <div class="mt-12 glass-card p-6 sm:p-8 rounded-3xl border border-slate-800">
+                    <h4 class="text-xl font-bold text-white mb-2 flex items-center">
+                        <i class="fa-solid fa-clock-rotate-left text-sky-400 mr-2"></i>
+                        Tabla 2.1: Tiempo Teórico de Renovación del Agua en la Ecosfera
+                    </h4>
+                    <p class="text-xs text-slate-400 mb-6">Velocidad en que toda el agua se renueva en cada reservorio natural.</p>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs sm:text-sm text-slate-300">
+                            <thead class="bg-slate-900 text-slate-200 uppercase font-semibold text-[11px] border-b border-slate-800">
+                                <tr>
+                                    <th class="p-3">Reservorio</th>
+                                    <th class="p-3">Volumen (10³ km³)</th>
+                                    <th class="p-3">% del Total</th>
+                                    <th class="p-3">Tiempo de Renovación</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800/60">
+                                <tr class="hover:bg-slate-900/50">
+                                    <td class="p-3 font-semibold text-white">Océanos</td>
+                                    <td class="p-3">1,370,000</td>
+                                    <td class="p-3 text-sky-400 font-bold">97.20%</td>
+                                    <td class="p-3 text-emerald-400 font-bold">37,000 años</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/50">
+                                    <td class="p-3 font-semibold text-white">Casquetes polares y glaciares</td>
+                                    <td class="p-3">29,000</td>
+                                    <td class="p-3">2.15%</td>
+                                    <td class="p-3 text-emerald-400 font-bold">16,000 años</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/50">
+                                    <td class="p-3 font-semibold text-white">Aguas subterráneas</td>
+                                    <td class="p-3">4,000</td>
+                                    <td class="p-3">0.63%</td>
+                                    <td class="p-3">300 años</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/50">
+                                    <td class="p-3 font-semibold text-white">Lagos de agua dulce y salados</td>
+                                    <td class="p-3">229</td>
+                                    <td class="p-3">0.017%</td>
+                                    <td class="p-3">1 - 1,000 años</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/50">
+                                    <td class="p-3 font-semibold text-white">Agua del suelo</td>
+                                    <td class="p-3">67</td>
+                                    <td class="p-3">0.005%</td>
+                                    <td class="p-3 text-amber-300">280 días</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/50">
+                                    <td class="p-3 font-semibold text-white">Ríos</td>
+                                    <td class="p-3">1.2</td>
+                                    <td class="p-3">0.0001%</td>
+                                    <td class="p-3 text-cyan-300 font-bold">12 - 20 días</td>
+                                </tr>
+                                <tr class="hover:bg-slate-900/50 bg-sky-950/20">
+                                    <td class="p-3 font-semibold text-white">Atmósfera</td>
+                                    <td class="p-3">14</td>
+                                    <td class="p-3">0.001%</td>
+                                    <td class="p-3 text-cyan-300 font-bold">¡Solo 9 días!</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: REGLA DE SUSTENTABILIDAD & SIMULADOR -->
+    <section id="sustentabilidad" class="py-20 bg-slate-950 relative border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold mb-3">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                    <span>Principio Clave del PDF</span>
+                </div>
+                <h3 class="text-3xl sm:text-5xl font-extrabold text-white">La Regla de Sustentabilidad</h3>
+                <div class="w-24 h-1 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-300 mt-4 leading-relaxed text-base sm:text-lg">
+                    Para mantener la sustentabilidad y productividad de los ecosistemas, la velocidad de los procesos de regeneración debe ser <strong class="text-emerald-400 font-bold uppercase underline">SIEMPRE MAYOR</strong> que la velocidad del impacto antropogénico.
+                </p>
+            </div>
+
+            <!-- Sustainability Rule Equation Display -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                
+                <!-- Positive side -->
+                <div class="glass-card p-8 rounded-3xl border-2 border-emerald-500/50 bg-emerald-950/10">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-emerald-300">Procesos Ecológicos</h4>
+                            <span class="text-xs text-slate-400">Tasa de conservación natural</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-200">
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-400 mr-3 text-lg"></i>Reciclado biogeoquímico</li>
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-400 mr-3 text-lg"></i>Renovación biológica</li>
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-400 mr-3 text-lg"></i>Purificación de agua y aire</li>
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-400 mr-3 text-lg"></i>Reemplazo de biomasa</li>
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-400 mr-3 text-lg"></i>Conservación de hábitats</li>
+                    </ul>
+                </div>
+
+                <!-- Negative side -->
+                <div class="glass-card p-8 rounded-3xl border-2 border-red-500/50 bg-red-950/10">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-industry"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-red-400">Impacto Antropogénico</h4>
+                            <span class="text-xs text-slate-400">Tasa de consumo y degradación</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-200">
+                        <li class="flex items-center"><i class="fa-solid fa-circle-xmark text-red-400 mr-3 text-lg"></i>Consumo excesivo de recursos</li>
+                        <li class="flex items-center"><i class="fa-solid fa-circle-xmark text-red-400 mr-3 text-lg"></i>Extracción de combustibles</li>
+                        <li class="flex items-center"><i class="fa-solid fa-circle-xmark text-red-400 mr-3 text-lg"></i>Contaminación y desecho</li>
+                        <li class="flex items-center"><i class="fa-solid fa-circle-xmark text-red-400 mr-3 text-lg"></i>Destrucción y fragmentación</li>
+                        <li class="flex items-center"><i class="fa-solid fa-circle-xmark text-red-400 mr-3 text-lg"></i>Abatimiento de acuíferos</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- INTERACTIVE SIMULATOR -->
+            <div class="glass-card p-8 rounded-3xl border border-slate-800">
+                <h4 class="text-2xl font-bold text-white text-center mb-2">Simulador de la Regla de Sustentabilidad</h4>
+                <p class="text-xs text-slate-400 text-center mb-8">Ajusta las tasas de renovación vs consumo para evaluar la salud de la Tierra.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <label class="block text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">
+                            Tasa de Renovación Natural: <span id="renewal-val" class="text-white text-base">75%</span>
+                        </label>
+                        <input type="range" id="renewal-rate" min="10" max="100" value="75" 
+                               class="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500" 
+                               oninput="updateSimulator()">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-red-400 uppercase tracking-wider mb-2">
+                            Tasa de Consumo Humano: <span id="consumption-val" class="text-white text-base">45%</span>
+                        </label>
+                        <input type="range" id="consumption-rate" min="10" max="100" value="45" 
+                               class="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-red-500" 
+                               oninput="updateSimulator()">
+                    </div>
+                </div>
+
+                <!-- Outcome Banner -->
+                <div id="sim-outcome" class="p-6 rounded-2xl text-center border transition-all">
+                    <!-- Injected by JavaScript -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12 text-slate-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <span class="text-slate-300 font-semibold text-sm">Ambiente y Sustentabilidad • Planeta Tierra</span>
+            </div>
+           
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC & CHARTS -->
+    <script>
+        // Data for Cycles Tab Switching
+        const cycleData = {
+            oxigeno: {
+                title: "Ciclo del Oxígeno (O₂)",
+                badge: "Ciclo Gaseoso",
+                color: "emerald",
+                formula: "6CO₂ + 6H₂O + Energía Solar ➔ C₆H₁₂O₆ + 6O₂",
+                desc: "El oxígeno es el elemento químico más abundante en los seres vivos. El 20% del O₂ en la atmósfera es un producto directo de la actividad de fotosíntesis. La radiación UV convierte el O₂ en ozono (O₃) en la estratósfera, protegiendo a la biosfera.",
+                points: [
+                    "Fotosíntesis libera O₂ asimilando CO₂.",
+                    "Respiración celular consume O₂ liberando energía.",
+                    "Forma la capa de ozono (filtro UV)."
+                ]
+            },
+            carbono: {
+                title: "Ciclo del Carbono (C)",
+                badge: "Ciclo Gaseoso",
+                color: "cyan",
+                formula: "C₆H₁₂O₆ + 6O₂ ➔ 6CO₂ + 6H₂O + Energía Liberada",
+                desc: "Involucra litósfera, hidrósfera, atmósfera y biosfera. El carbono forma los carbohidratos, lípidos, proteínas y ácidos nucleicos. Las plantas fotosintéticas constituyen la base principal de fijación de dióxido de carbono.",
+                points: [
+                    "El mayor depósito está en sedimentos y rocas.",
+                    "La atmósfera posee 0.03% de CO₂.",
+                    "Transferencia rápida (aprox. 3 años) entre fotosíntesis y respiración."
+                ]
+            },
+            nitrogeno: {
+                title: "Ciclo del Nitrógeno (N₂)",
+                badge: "Ciclo Gaseoso",
+                color: "indigo",
+                formula: "N₂ (Aire) ➔ Nitratos (NO₃⁻) / Amonio (NH₄⁺)",
+                desc: "Constituye el 78% de la atmósfera en forma de gas inerte (N₂). Las bacterias y algas fijadoras de nitrógeno convierten este gas en formas solubles asimilables por las raíces de las plantas.",
+                points: [
+                    "Esencial para síntesis de proteínas y ADN/ARN.",
+                    "Los animales lo obtienen al consumir plantas u otros animales.",
+                    "La mayor parte en suelo está en humus y materia orgánica."
+                ]
+            },
+            fosforo: {
+                title: "Ciclo del Fósforo (P)",
+                badge: "Ciclo Sedimentario",
+                color: "amber",
+                formula: "PO₄³⁻ (Ión Fosfato)",
+                desc: "Su reservorio principal son las rocas y sedimentos de la corteza terrestre. Circula de forma muy lenta y sin fase gaseosa. Forma parte del ATP (energía celular) y ácidos nucleicos.",
+                points: [
+                    "Representa el 0.2% en plantas y hasta el 1% en animales.",
+                    "Fácilmente arrastrado al mar donde se sedimenta por millones de años.",
+                    "Liberado por meteorización e intemperización de rocas."
+                ]
+            },
+            azufre: {
+                title: "Ciclo del Azufre (S)",
+                badge: "Ciclo Sedimentario",
+                color: "yellow",
+                formula: "Sulfatos (CaSO₄) & Sulfuros (FeS₂)",
+                desc: "Micronutriente imprescindible para proteínas. Su depósito mayor son los océanos (sulfato inorgánico) y sedimentos litosféricos. Las actividades industriales excesivas provocan lluvia ácida.",
+                points: [
+                    "Presente en tres estados: sulfuros, azufre elemental y sulfato.",
+                    "Base de la fotosíntesis anoxigénica basada en azufre.",
+                    "Depende fuertemente del pH del suelo/agua."
+                ]
+            },
+            agua: {
+                title: "Ciclo Hidrológico (Agua)",
+                badge: "Ciclo Global",
+                color: "sky",
+                formula: "H₂O (Líquido • Gaseoso • Sólido)",
+                desc: "Disolvente universal que constituye del 50% al 90% de la masa de los seres vivos. Concentra, purifica y distribuye el abasto finito de agua vía evaporación, condensación, precipitación e infiltración.",
+                points: [
+                    "Regulador térmico global de amplio espectro.",
+                    "Único elemento presente naturalmente en los 3 estados físicos.",
+                    "Sirve como vehículo de transporte de todos los demás nutrientes."
+                ]
+            }
+        };
+
+        function switchTab(key) {
+            const data = cycleData[key];
+            const contentDiv = document.getElementById('tab-content');
+            
+            // Update active tab styles
+            document.querySelectorAll('.cycle-tab').forEach(btn => {
+                btn.className = "cycle-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all";
+            });
+            const activeBtn = document.getElementById(`tab-${key}`);
+            if(activeBtn) {
+                activeBtn.className = "cycle-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-600 text-white shadow-lg transition-all";
+            }
+
+            // Inject Content
+            contentDiv.innerHTML = `
+                <div class="animate-fadeIn">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold">${data.badge}</span>
+                        <h4 class="text-2xl font-bold text-white">${data.title}</h4>
+                    </div>
+                    
+                    <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 font-mono text-emerald-400 text-xs sm:text-sm mb-4 inline-block">
+                        ${data.formula}
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">${data.desc}</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        ${data.points.map(pt => `
+                            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800 text-xs text-slate-300 flex items-start">
+                                <i class="fa-solid fa-angle-right text-emerald-400 mt-0.5 mr-2"></i>
+                                <span>${pt}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Simulator logic for Rule of Sustainability
+        function updateSimulator() {
+            const renewal = parseInt(document.getElementById('renewal-rate').value);
+            const consumption = parseInt(document.getElementById('consumption-rate').value);
+
+            document.getElementById('renewal-val').innerText = `${renewal}%`;
+            document.getElementById('consumption-val').innerText = `${consumption}%`;
+
+            const outcomeBox = document.getElementById('sim-outcome');
+
+            if (renewal > consumption) {
+                outcomeBox.className = "p-6 rounded-2xl text-center border bg-emerald-950/50 border-emerald-500/60 text-emerald-200";
+                outcomeBox.innerHTML = `
+                    <i class="fa-solid fa-circle-check text-3xl text-emerald-400 mb-2"></i>
+                    <h5 class="text-lg font-bold text-white">REGLA CUMPLIDA: ECOSISTEMA SUSTENTABLE</h5>
+                    <p class="text-xs text-emerald-300 mt-1">
+                        La tasa de reciclado y renovación (${renewal}%) es superior al consumo (${consumption}%). Se preserva la homeostasis y la biodiversidad.
+                    </p>
+                `;
+            } else if (renewal === consumption) {
+                outcomeBox.className = "p-6 rounded-2xl text-center border bg-amber-950/50 border-amber-500/60 text-amber-200";
+                outcomeBox.innerHTML = `
+                    <i class="fa-solid fa-triangle-exclamation text-3xl text-amber-400 mb-2"></i>
+                    <h5 class="text-lg font-bold text-white">ESTADO LÍMITE CRÍTICO</h5>
+                    <p class="text-xs text-amber-300 mt-1">
+                        El consumo e impacto iguala la capacidad de regeneración (${renewal}%). Cualquier perturbación ambiental provocará degradación.
+                    </p>
+                `;
+            } else {
+                outcomeBox.className = "p-6 rounded-2xl text-center border bg-red-950/50 border-red-500/60 text-red-200";
+                outcomeBox.innerHTML = `
+                    <i class="fa-solid fa-skull-crossbones text-3xl text-red-400 mb-2"></i>
+                    <h5 class="text-lg font-bold text-white">REGLA VIOLADA: COLAPSO ECOLÓGICO</h5>
+                    <p class="text-xs text-red-300 mt-1">
+                        El consumo y contaminación (${consumption}%) supera a la regeneración (${renewal}%). Se produce agotamiento de recursos y pérdida de biodiversidad.
+                    </p>
+                `;
+            }
+        }
+
+        // Initialize Charts on Window Load
+        window.onload = function() {
+            // Default Cycle Tab
+            switchTab('oxigeno');
+
+            // Default Simulator State
+            updateSimulator();
+
+            // Water Chart (Chart.js)
+            const ctxWater = document.getElementById('waterChart').getContext('2d');
+            new Chart(ctxWater, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Océanos (Salada)', 'Hielo Glaciar (No accesible)', 'Agua Dulce Accesible'],
+                    datasets: [{
+                        data: [97, 2, 1],
+                        backgroundColor: ['#0284c7', '#38bdf8', '#10b981'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#cbd5e1', font: { family: 'Inter', size: 11 } }
+                        }
+                    }
+                }
+            });
+
+            // Land Chart (Chart.js)
+            const ctxLand = document.getElementById('landChart').getContext('2d');
+            new Chart(ctxLand, {
+                type: 'pie',
+                data: {
+                    labels: ['Bosques (32%)', 'Polos/Desiertos (30%)', 'Pastizales (25%)', 'Agropecuaria (11%)', 'Ciudades (2%)'],
+                    datasets: [{
+                        data: [32, 30, 25, 11, 2],
+                        backgroundColor: ['#16a34a', '#64748b', '#d97706', '#eab308', '#a855f7'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#cbd5e1', font: { family: 'Inter', size: 10 } }
+                        }
+                    }
+                }
+            });
+
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        };
+    </script>
+</body>
+</html>
